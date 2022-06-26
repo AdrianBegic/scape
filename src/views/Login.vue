@@ -5,6 +5,7 @@
       <input type="email" placeholder="Email address..." v-model="email" />
       <input type="password" placeholder="password..." v-model="password" />
       <button type="submit">Login</button>
+      <router-link to="/forgot-password">Forgot password ?</router-link>
     </form>
   </div>
 </template>

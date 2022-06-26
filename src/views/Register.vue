@@ -5,12 +5,12 @@
     <input
       type="email"
       placeholder="Email address..."
-      v-model="email"
+      v-model="user.email"
     />
     <input
       type="password"
       placeholder="password..."
-      v-model="password"
+      v-model="user.password"
     />
     <button type="submit">Register</button>
   </form>
@@ -22,19 +22,22 @@ import firebase from "firebase";
 export default {
   data() { 
   return { 
-    email: '', 
-    password: '', 
+     user: {
+        name: '',
+        email: '',
+        password: ''
+      }
   }; 
 },
   methods: {
   register() {
     firebase
       .auth()
-      .createUserWithEmailAndPassword(this.email, this.password)
-      .then(() => {
+      .createUserWithEmailAndPassword(this.user.email, this.user.password)
+           .then(() => {
         alert('Successfully registered! Please login.');
-        this.$router.push('/');
-      })
+        this.$router.push('/Dashboard');
+           })
       .catch(error => {
         alert(error.message);
       });
