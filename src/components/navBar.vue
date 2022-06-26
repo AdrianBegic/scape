@@ -126,9 +126,8 @@ export default {
           this.$router.push('/login')
         })
       })
-    }
+    },
   },
-
   created() {
     db.collection("tests").onSnapshot((snapshotChange) => {
       this.tests = [];
@@ -150,6 +149,7 @@ export default {
     });
   },
 };
+
 </script>
 
 <style lang="scss">
