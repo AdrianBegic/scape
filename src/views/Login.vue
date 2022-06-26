@@ -13,8 +13,15 @@
 <script>
 /* eslint-disable */
 import firebase from "firebase";
+
+
 export default {
   name: "Login",
+   data() {
+        return {
+           
+        };
+    },
   methods: {
     login() {
       firebase
@@ -22,7 +29,7 @@ export default {
         .signInWithEmailAndPassword(this.email, this.password)
         .then(() => {
           alert("Successfully logged in");
-          this.$router.push("/Dashboard");
+          this.$router.push("/dashboard");
         })
         .catch((error) => {
           alert(error.message);

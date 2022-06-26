@@ -610,7 +610,7 @@
               />
               <div class="message-content">
                 <div class="message-header">
-                  <div class="name">Stephanie</div>
+                  <div class="name">John</div>
                   <div class="star-checkbox">
                     <input type="checkbox" id="star-1" />
                     <label for="star-1">
@@ -760,13 +760,32 @@
 <script>
 // @ is an alias to /src
 import  navBar from "../components/navBar.vue";
+import firebase from "firebase";
 
 export default {
   name: "Home",
   components: {
     navBar
   },
+  data() {
+    return {
+      user: null
+    };
+  },
+
+
+ created() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.user = user;
+      } else {
+        this.user = null;
+      }
+    });
+  },
 };
+
+
 methods: {
   document.addEventListener('DOMContentLoaded', function () {
   var modeSwitch = document.querySelector('.mode-switch');
@@ -802,6 +821,8 @@ methods: {
   });
 });
 }
+  
+
 
 </script>
 

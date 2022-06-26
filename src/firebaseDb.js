@@ -1,6 +1,7 @@
 /* eslint-disable */
 import * as firebase from 'firebase';
 
+
 const firebaseConfig = {
   apiKey: "AIzaSyCkLz1gp2mXGSrTiWvEAIbrzG7Yi6_2uBc",
   authDomain: "scape-c4cb4.firebaseapp.com",
@@ -19,3 +20,4 @@ firebase.auth().onAuthStateChanged(user => {
 });
 
 export const db = firebaseApp.firestore();
+
