@@ -11,6 +11,7 @@
     "@pixi/filter-kawase-blur": "^4.1.5",
     "core-js": "^3.6.5",
     "debounce": "^1.2.1",
+    "firebase": "^7.14.2",
     "hsl-to-hex": "^1.0.0",
     "pixi.js": "^6.4.2",
     "register-service-worker": "^1.7.1",

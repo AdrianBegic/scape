@@ -40,7 +40,7 @@
                 </button>
                 <button class="profile-btn">
                     <img src="https://assets.codepen.io/3306515/IMG_2025.jpg" />
-                    <span>User</span>
+                    <span v-for="tests in tests" :key="tests.id">{{tests.Name}}</span>
                 </button>
             </div>
             <button class="messages-btn">
@@ -55,8 +55,35 @@
 </template>
 
 <script>
+import {
+    db
+} from "../firebaseDb";
+
   export default {
        name: 'navBar',
+       data() {
+        return {
+            tests: {},
+        };
+    },
+
+created() {
+        db.collection("tests").onSnapshot((snapshotChange) => {
+            this.tests = [];
+            snapshotChange.forEach((doc) => {
+                this.tests.push({
+                    key: doc.id,
+                    Image: doc.data().image,
+                    Name: doc.data().name,
+                    ID: doc.data().ID,
+                });
+            });
+        });
+
+        
+
+    },
+
   };
 </script>
 
